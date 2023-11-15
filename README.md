@@ -22,3 +22,9 @@ El framework Laravel se destaca por varias características y herramientas, que 
 8. **Testing:** Laravel es amigable para las pruebas y proporciona soporte para PHPUnit y también tiene su propio sistema de pruebas.
 
 En resumen, Laravel es una opción popular para los desarrolladores de PHP debido a su sintaxis elegante, características poderosas y una comunidad activa que proporciona tutoriales y paquetes adicionales.
+
+## webpack
+En laravel 8 se trabajaba con `webpack` 
+
+## Vite
+En laravel 9+ se trabaja con `vite` 
