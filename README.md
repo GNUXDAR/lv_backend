@@ -23,6 +23,12 @@ El framework Laravel se destaca por varias características y herramientas, que 
 
 En resumen, Laravel es una opción popular para los desarrolladores de PHP debido a su sintaxis elegante, características poderosas y una comunidad activa que proporciona tutoriales y paquetes adicionales.
 
+# Ejecutar proyecto
+``` 
+cd proyecto/Docker-config  
+docker compose up -d  
+ ```
+
 ## webpack
 En laravel 8 se trabajaba con `webpack` 
 
