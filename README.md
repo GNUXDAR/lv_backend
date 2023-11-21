@@ -29,6 +29,10 @@ cd proyecto/Docker-config
 docker compose up -d  
  ```
 
+# Laravel 8
+* PHP 7.4.33
+* Server version: 5.7.43
+*  
 ## webpack
 En laravel 8 se trabajaba con `webpack` 
 
