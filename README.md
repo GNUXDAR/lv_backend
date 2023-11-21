@@ -38,3 +38,9 @@ En laravel 8 se trabajaba con `webpack`
 
 ## Vite
 En laravel 9+ se trabaja con `vite` 
+
+## Error
+En caso de que no se cambia la version de PHP necesaria, posicinoarse en el directorio del proyecto `/Docker-config` y ejecutar
+```
+docker compose build
+```
