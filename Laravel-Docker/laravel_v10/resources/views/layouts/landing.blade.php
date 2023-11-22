@@ -7,6 +7,7 @@
     <title>@yield('title', 'Layout de Laravel')</title>
 </head>
 <body>
+    @include('layouts.partials.menu')
     @yield('content')
 </body>
 </html>
