@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -11,6 +12,7 @@ class UserController extends Controller
     public function index() {
         // dd("Hello world");
 
+        // Eloquent
         $users = User::all(); // traer todos los datos
         // $users = User::findOrFail(1); //buscar el ID y muestra error si no lo encuentra
         // busqueda condicionada
@@ -19,6 +21,9 @@ class UserController extends Controller
         // retornar vistas
         // return view('user.index');
 
+        // DB
+        // $users = DB::select("Select * from users");
+
         // retornar datos desde el modelo
         // return view('user.index', ["users" => $users]);
         // es lo mismo que escribir
@@ -26,7 +31,7 @@ class UserController extends Controller
     }
 
     public function create() {
-        // dos maneras de guardar datos
+        // dos maneras de guardar datoscon  Eloquent
         $user = new User;
         $user->name = "Arturo";
         $user->email = "admin@not-reply.com";
@@ -44,6 +49,10 @@ class UserController extends Controller
             "address" => "Sucre",
             "zip_code" => 7654321
         ]);
+
+        // DB
+        // DB::insert( DB::raw('INSERT INTO users VALUR ... '));
+
 
         return redirect()->route('user.index');
     }
