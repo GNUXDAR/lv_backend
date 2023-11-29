@@ -13,7 +13,8 @@ class Note extends Model
         "title",
         "content",
         "deadline",
-        "done"
+        "done",
+        "author"
     ];
     // protected $table = "notes"
     // protected $guarded = 
