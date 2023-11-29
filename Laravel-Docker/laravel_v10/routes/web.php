@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController; //add
+use App\Http\Controllers\UserController; //User Controller
+use App\Http\Controllers\NoteController; //Note Controller
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,9 @@ Route::get('/users', [UserController::class, 'index'])->name('user.index');
 // antes era...Route::get('/users', 'UserController@index')->name('user.index');
 
 Route::get('/create', [UserController::class, 'create'])->name('user.create');
+
+// Rutas Dinamicas
+// Route::get('/note/{id?}', [NoteController::class, 'index'])->name('note.index');
+
+// Rutas de Note CRUD
+Route::get('/note', [NoteController::class, 'index'])->name('note.index');
