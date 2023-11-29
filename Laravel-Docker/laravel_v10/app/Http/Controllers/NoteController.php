@@ -17,4 +17,26 @@ class NoteController extends Controller
         $notes = Note::all();
         return view('note.index', compact('notes'));
     }
+
+    public function create(){
+        return view('note.create');
+    }
+
+    public function store(Request $request){
+        // $note = new Note;
+        // $note->title = $request->title;
+        // $note->content = $request->content;
+        // $note->save();
+
+        // otra manera de hacerlo es...
+        // Note::create([
+        //     'title' => $request->title,
+        //     'content' => $request->content
+        // ]);
+
+        // Otras mas...
+        Note::create($request->all());
+
+        return redirect()->route('note.index');
+    }
 }
