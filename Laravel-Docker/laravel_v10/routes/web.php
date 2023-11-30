@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController; //User Controller
 use App\Http\Controllers\NoteController; //Note Controller
+use App\Http\Controllers\AuthorController; // Author Controller
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,6 @@ Route::get('/note/edit/{note}', [NoteController::class, 'edit'])->name('note.edi
 Route::put('/note/update/{note}', [NoteController::class, 'update'])->name('note.update');  // Actualizar nota
 Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note.show');    // Mostrar nota
 Route::delete('/note/detroy/{note}', [NoteController::class, 'destroy'])->name('note.destroy');  // Eliminar nota
+
+// Rutas de Author CRUD
+Route::resource('/author', AuthorController::class);
