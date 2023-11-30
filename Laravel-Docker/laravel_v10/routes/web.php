@@ -38,4 +38,7 @@ Route::get('/create', [UserController::class, 'create'])->name('user.create');
 // Rutas de Note CRUD
 Route::get('/note', [NoteController::class, 'index'])->name('note.index');
 Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
-Route::post('/note/store', [NoteController::class, 'store'])->name('note.store'); //guaradar datos
+Route::post('/note/store', [NoteController::class, 'store'])->name('note.store');   // Guardar nota
+Route::get('/note/edit/{note}', [NoteController::class, 'edit'])->name('note.edit');   // Editar nota
+Route::put('/note/update/{note}', [NoteController::class, 'update'])->name('note.update');  // Actualizar nota
+Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note.show');    // Mostrar nota
