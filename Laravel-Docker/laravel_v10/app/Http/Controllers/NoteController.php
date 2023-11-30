@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Note;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class NoteController extends Controller
 {
@@ -13,16 +15,19 @@ class NoteController extends Controller
     // }
 
     // CRUD
-    public function index(){
+    public function index(): View
+    {
         $notes = Note::all();
         return view('note.index', compact('notes'));
     }
 
-    public function create(){
+    public function create(): View
+    {
         return view('note.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request): RedirectResponse
+    {
         // $note = new Note;
         // $note->title = $request->title;
         // $note->content = $request->content;
@@ -40,12 +45,14 @@ class NoteController extends Controller
         return redirect()->route('note.index');
     }
 
-    public function edit(Note $note){
+    public function edit(Note $note): View
+    {
         // $note = Note::find($note); || public function edit(Note $note){
         return view('note.edit', compact('note'));
     }
 
-    public function update(Request $request, Note $note){
+    public function update(Request $request, Note $note): RedirectResponse
+    {
         // si no usaramos el Note $note
         // $note = Note::find($note);
         // $note->title = $request->title;
@@ -57,11 +64,13 @@ class NoteController extends Controller
         return redirect()->route('note.index');
     }
 
-    public function show(Note $note){
+    public function show(Note $note): View
+    {
         return view('note.show', compact('note'));
     }
 
-    public function destroy(Note $note){
+    public function destroy(Note $note): RedirectResponse
+    {
         $note->delete();
         return redirect()->route('note.index');
     }
