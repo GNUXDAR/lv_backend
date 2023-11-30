@@ -60,4 +60,9 @@ class NoteController extends Controller
     public function show(Note $note){
         return view('note.show', compact('note'));
     }
+
+    public function destroy(Note $note){
+        $note->delete();
+        return redirect()->route('note.index');
+    }
 }
