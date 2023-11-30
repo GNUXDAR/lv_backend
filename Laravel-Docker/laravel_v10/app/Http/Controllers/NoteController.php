@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\NoteRequest;
 
 class NoteController extends Controller
 {
@@ -39,10 +40,18 @@ class NoteController extends Controller
         //     'content' => $request->content
         // ]);
 
-        // Otras mas...
+        // validacion en el controller | Mala practica
+        // deberiamso volver a copiarla en el Update
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'content' => 'required|max:255|min:10',
+            'author' => 'required|max:25'
+        ]);
+
+        // Otra mas...
         Note::create($request->all());
 
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('success', 'Note Created');
     }
 
     public function edit(Note $note): View
@@ -51,7 +60,8 @@ class NoteController extends Controller
         return view('note.edit', compact('note'));
     }
 
-    public function update(Request $request, Note $note): RedirectResponse
+    // agregando una custom request NoteRequestm en vez de agregar el codigo del store
+    public function update(NoteRequest $request, Note $note): RedirectResponse
     {
         // si no usaramos el Note $note
         // $note = Note::find($note);
@@ -61,7 +71,7 @@ class NoteController extends Controller
 
         $note->update($request->all());
 
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('success', 'Note Updates');
     }
 
     public function show(Note $note): View
@@ -72,6 +82,6 @@ class NoteController extends Controller
     public function destroy(Note $note): RedirectResponse
     {
         $note->delete();
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('danger', 'Note deleted');
     }
 }
