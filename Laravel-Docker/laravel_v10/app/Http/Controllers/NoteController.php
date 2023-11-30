@@ -7,6 +7,7 @@ use App\Models\Note;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\NoteRequest;
+use Illuminate\Support\Facades\Session;
 
 class NoteController extends Controller
 {
@@ -50,6 +51,8 @@ class NoteController extends Controller
 
         // Otra mas...
         Note::create($request->all());
+
+        // Session::flash('success', '¡La operación se realizó con éxito!');
 
         return redirect()->route('note.index')->with('success', 'Note Created');
     }
