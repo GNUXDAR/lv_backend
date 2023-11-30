@@ -39,4 +39,25 @@ class NoteController extends Controller
 
         return redirect()->route('note.index');
     }
+
+    public function edit(Note $note){
+        // $note = Note::find($note); || public function edit(Note $note){
+        return view('note.edit', compact('note'));
+    }
+
+    public function update(Request $request, Note $note){
+        // si no usaramos el Note $note
+        // $note = Note::find($note);
+        // $note->title = $request->title;
+        // $note->content = $request->content;
+        // $note->save();
+
+        $note->update($request->all());
+
+        return redirect()->route('note.index');
+    }
+
+    public function show(Note $note){
+        return view('note.show', compact('note'));
+    }
 }
