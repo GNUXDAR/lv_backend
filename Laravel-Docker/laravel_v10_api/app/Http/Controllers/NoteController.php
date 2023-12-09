@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use App\Http\Requests\NoteRequest;
+use App\Http\Resources\NoteResource;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class NoteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index():JsonResponse
+    public function index(): JsonResource
     {
         $notes = Note::all();
-        return response()->json($notes, 200);
+        // return response()->json($notes, 200);
+
+        // return new NoteResource($notes);
+        return NoteResource::collection($notes); // con collection del resource
     }
 
     // create no es necesaria, porque no vamso a  retornar ninguna vista
@@ -27,17 +32,18 @@ class NoteController extends Controller
         $note = Note::create($request->all());
         return response()->json([
             'success' => true,
-            'data' => $note
+            'data' => new NoteResource($note)
         ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id):JsonResponse
+    public function show(string $id):JsonResource
     {
         $note = Note::find($id);
-        return response()->json($note, 200);
+        // return response()->json($note, 200);
+        return new NoteResource($note);
     }
 
     // edit no es necesaria, porque no vamso a  retornar ninguna vista
@@ -52,7 +58,7 @@ class NoteController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $note
+            'data' => new NoteResource($note)
         ], 200);
     }
 
