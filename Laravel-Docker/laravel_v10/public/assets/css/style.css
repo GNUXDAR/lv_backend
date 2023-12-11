@@ -43,6 +43,9 @@ header nav ul li a:hover {
     color: aqua;
 } */
 
+.container {
+    display: flex;
+}
 .card {
     border: 1px solid black;
     border-radius: 15px;
