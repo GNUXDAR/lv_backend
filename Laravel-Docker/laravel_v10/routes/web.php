@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController; //User Controller
 use App\Http\Controllers\NoteController; //Note Controller
 use App\Http\Controllers\AuthorController; // Author Controller
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::delete('/note/detroy/{note}', [NoteController::class, 'destroy'])->name('
 
 // Rutas de Author CRUD
 Route::resource('/author', AuthorController::class);
+
+// Rutas de productos, para mostrar los seeder
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
