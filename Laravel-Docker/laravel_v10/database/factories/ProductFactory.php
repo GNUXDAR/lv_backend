@@ -17,10 +17,18 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => Str::random(25),
-            'short_description' => Str::random(45),
-            'description' => Str::random(150),
-            'price' => random_int(1,125)
+            // Only Factory 
+            // 'name' => Str::random(25),
+            // 'short_description' => Str::random(45),
+            // 'description' => Str::random(150),
+            // 'price' => random_int(1,125)
+
+            // with Faker fake()
+            // example fake()->name(), sentences(), email(), address(), 
+            'name' => fake()->name(),
+            'short_description' => fake()->sentence(),
+            'description' => fake()->paragraph(3),
+            'price' => fake()->numberBetween(1,125)
         ];
     }
 }
