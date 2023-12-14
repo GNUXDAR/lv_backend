@@ -15,9 +15,11 @@
     {{-- mejor manera --}}
     <ul>
         @forelse($users as $user)
-            <li>{{ $user->name }}  {{ $user->age }}</li>
+            <li><a href="/user/show/{{ $user->id}}">{{ $user->name }}  {{ $user->age }} {{-- $user->phone --}}</a></li>
+            
         @empty
             <p>No hay Data!.</p>
         @endforelse
+        {{-- {{ $users->phone->prefix }} - {{ $users->phone->phone_number }} --}}
     </ul>
 @endsection
