@@ -22,6 +22,6 @@ use App\Models\User;
 
 // Hemos creado aqui, pero deberia hacerse en un controller
 Route::get('/user', function (Request $request) {
-    $user = User::find(1);
+    $user = User::find(3);
     return new UserResource($user);
 });
