@@ -19,7 +19,9 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'nmae' => $this->name, 
             'email' => $this->email,
-            'phone' => '('.$this->phone->prefix.')'. $this->phone->phone_number
+            // 'phone' => '('.$this->phone->prefix.')'. $this->phone->phone_number
+            // en el caso de uno a muchos
+            'phones' => $this->phones
         ];
     }
 }
