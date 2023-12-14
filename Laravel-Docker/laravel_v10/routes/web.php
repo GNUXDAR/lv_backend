@@ -31,6 +31,7 @@ Route::view('/contact', 'contact')->name('contact');
 // Controllers
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 // antes era...Route::get('/users', 'UserController@index')->name('user.index');
+Route::get('/user/show/{user}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/create', [UserController::class, 'create'])->name('user.create');
 
