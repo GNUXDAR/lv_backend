@@ -15,6 +15,9 @@
 - fake
 - factory
 
+## Relaciones de Modelos
+belongsTo, hasOne
+
 CRUD
 Product
   Aqui trabajo con un ejemplo para el uso de los seeder
