@@ -14,6 +14,7 @@ class UserController extends Controller
 
         // Eloquent
         $users = User::all(); // traer todos los datos
+        // $users = User::find(3); // traer al ususario con id 3
         // $users = User::findOrFail(1); //buscar el ID y muestra error si no lo encuentra
         // busqueda condicionada
         // $users = User::where('age', '>=', 18)->orWhere('zip_code', 7654321)->orderBy('age', 'desc')->limit(1)->get(); //->first()
@@ -28,6 +29,11 @@ class UserController extends Controller
         // return view('user.index', ["users" => $users]);
         // es lo mismo que escribir
         return view('user.index', compact('users'));
+    }
+
+    public function show(User $user)
+    {
+        return view('user.show', compact('user'));
     }
 
     public function create() {
