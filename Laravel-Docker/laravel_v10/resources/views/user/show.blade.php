@@ -15,4 +15,14 @@
             @endforeach
         </ul>
         {{-- {{ $user->phone->phone_number }}</h3> --}}
+
+    {{-- prueba de relacion muchos a muchos --}}
+    <h3>Roles: 
+        <ul>
+            {{-- un usuario puede tener muchos roles y un rol puede tener muchos usuarios belongsToMany --}}
+            @foreach ($user->roles as $role)
+            <li>{{ $role->name }} Added by: {{ $role->pivot->added_by }}</li>
+                
+            @endforeach
+        </ul>
 @endsection
