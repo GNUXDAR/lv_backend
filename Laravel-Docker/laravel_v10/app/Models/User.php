@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -61,5 +62,11 @@ class User extends Authenticatable
     public function phones(): HasMany
     {
         return $this->hasMany(Phone::class);
+    }
+
+    // relacion muchos a muchos
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class)->withPivot('added_by');
     }
 }
