@@ -21,7 +21,9 @@ class UserResource extends JsonResource
             'email' => $this->email,
             // 'phone' => '('.$this->phone->prefix.')'. $this->phone->phone_number
             // en el caso de uno a muchos
-            'phones' => $this->phones
+            'phones' => $this->phones,
+            // muchos a muchos
+            'roles' => $this->roles
         ];
     }
 }
