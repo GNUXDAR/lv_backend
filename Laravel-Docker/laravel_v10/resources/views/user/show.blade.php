@@ -10,8 +10,7 @@
         <ul>
             {{-- un usuario puede tener varios numero hasMany --}}
             @foreach ($user->phones as $phone)
-            <li>{{ $phone->prefix }} {{ $phone->phone_number }}</li>
-                
+                <li>{{ $phone->prefix }} {{ $phone->phone_number }}</li>   
             @endforeach
         </ul>
         {{-- {{ $user->phone->phone_number }}</h3> --}}
@@ -21,8 +20,17 @@
         <ul>
             {{-- un usuario puede tener muchos roles y un rol puede tener muchos usuarios belongsToMany --}}
             @foreach ($user->roles as $role)
-            <li>{{ $role->name }} Added by: {{ $role->pivot->added_by }}</li>
-                
+                <li>{{ $role->name }} Added by: {{ $role->pivot->added_by }}</li>  
             @endforeach
         </ul>
+
+    {{-- prueba de relacion Intermedia --}}
+    <h3>Sim: 
+        <h3>{{ $user->phoneSim->company }}</h3>
+        {{-- <ul> --}}
+            {{-- un usuario puede tener muchos roles y un rol puede tener muchos usuarios belongsToMany --}}
+            {{-- @foreach ($user->phoneSim as $sim)
+                <li>{{ $sim->company }} Added by: {{ $sim->serial_number }}</li> 
+            @endforeach
+        </ul> --}}
 @endsection
