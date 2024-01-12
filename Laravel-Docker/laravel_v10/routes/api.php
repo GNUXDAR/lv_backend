@@ -4,6 +4,7 @@ use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\ExampleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,21 @@ Route::get('/user', function (Request $request) {
     $user = User::find(3);
     return new UserResource($user);
 });
+
+// Route::middleware('example')->get('/example', [ExampleController::class, 'index']);
+Route::get('/no-access', [ExampleController::class, 'noAccess'])->name('no-access');
+
+// proteccion de grupo de rutas
+Route::middleware('example')->group(function(){
+    Route::get('/example', [ExampleController::class, 'index']);
+    // otras rutas
+});
+
+// Aplicar ambos middleware a la mayoría de las rutas
+// Route::middleware(['auth', 'log'])->group(function () {
+//     Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+//     Route::get('/admin/users', [AdminController::class, 'listUsers']);
+
+    // Excluir el middleware 'log' en la ruta de configuración
+//     Route::get('/admin/settings', [AdminController::class, 'settings'])->withoutMiddleware('log');
+// });
