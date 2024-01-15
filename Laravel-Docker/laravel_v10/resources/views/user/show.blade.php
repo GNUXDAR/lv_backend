@@ -26,11 +26,11 @@
 
     {{-- prueba de relacion Intermedia --}}
     <h3>Sim: 
-        <h3>{{ $user->phoneSim->company }}</h3>
+        {{-- <h3>{{ $user->phoneSim->company }}</h3> --}}
         {{-- <ul> --}}
             {{-- un usuario puede tener muchos roles y un rol puede tener muchos usuarios belongsToMany --}}
             {{-- @foreach ($user->phoneSim as $sim)
-                <li>{{ $sim->company }} Added by: {{ $sim->serial_number }}</li> 
+                <li>{{ $sim->company }}  {{ $sim->serial_number }}</li> 
             @endforeach
         </ul> --}}
 @endsection
